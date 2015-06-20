@@ -57,6 +57,7 @@
         <br><br><br>
 
         <div class="container">
+<<<<<<< Updated upstream
             <div class="row">
                 <div class=" card">
                     <div class="col-lg-12 col-md-12 col-sm-12" >
@@ -101,6 +102,18 @@
                         <div class="col-lg-12" >
                             <div class="page-header">
                                 <h2>Populated Timetable</h2>
+=======
+            <div class="row" >
+                <div class="Absolute-Center is-Responsive  card ">
+                    <h1 style="color:white;">Administrator</h1>
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+
+                        <form >
+                            <a href="timetable.jsp" class="btn btn-primary">Manage Timetable</a>
+                            <a href="student.jsp" class="btn btn-primary">Manage Student</a>
+                            <a href="timetable.jsp" class="btn btn-primary">Manage Lecturer</a>
+                            <a href="timetable.jsp" class="btn btn-primary">Manage Courses</a>
+>>>>>>> Stashed changes
                             </div>
                             <div class="bs-component table-responsive">
                                 <table class="table table-striped table-bordered">

@@ -16,7 +16,6 @@ public class Student {
     
     private int accesslevel;
     private String typeGradUndergrad;
-    private Integer userIduser;
     private Collection<Lecture> lectureCollection;
     private Department departmentDepartmentId;
     private User user;
@@ -36,15 +35,7 @@ public class Student {
     public void setTypeGradUndergrad(String typeGradUndergrad) {
         this.typeGradUndergrad = typeGradUndergrad;
     }
-
-    public Integer getUserIduser() {
-        return userIduser;
-    }
-
-    public void setUserIduser(Integer userIduser) {
-        this.userIduser = userIduser;
-    }
-
+    
     public Collection<Lecture> getLectureCollection() {
         return lectureCollection;
     }
@@ -72,6 +63,6 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" + "typeGradUndergrad=" + typeGradUndergrad
-                + ", userIduser=" + userIduser + '}';
+                + ", userIduser=" + user.getIduser() + '}';
     }
 }

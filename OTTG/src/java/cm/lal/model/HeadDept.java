@@ -10,7 +10,7 @@ package cm.lal.model;
  *
  * @author user
  */
-public class HeadDept extends User {
+public class HeadDept {
     
     private int accesslevel;
     private Integer duration;
