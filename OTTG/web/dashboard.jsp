@@ -34,7 +34,7 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li class=""><a href="#">Link <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Help</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faculties <span class="caret"></span></a>
@@ -63,8 +63,8 @@
                         <h2><span style="color:black; ">Welcome Admin</span></h2>
                         <div class="item item-thumbnail-left">
                             <img src="img/admin.jpg"> 
-                            <h2>Ddenine sieernbskjberjs</h2>
-                            <h2>Ddenine sieresnbnnbelrne</h2>
+                            <h2>Administrator Dashboard</h2>
+                            <h2>CRUD timetable</h2>
 
                         </div>    
                         <ul class="list-group">
@@ -80,17 +80,17 @@
                     <!-- Table manapiulation buttons -->
                     <div class= "row card">
                         <div class="col-lg-6 col-md-4 col-sm-4"> <!-- Button trigger modal add course -->
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addCourse">
                                 Add course
                             </button>
                         </div>&nbsp
                         <div class="col-lg-6 col-md-4 col-sm-4"><!-- Button trigger modal add lecturer -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addLecturer">
                                 Add lecturer
                             </button>
                         </div>&nbsp
                         <div class="col-lg-6 col-md-4 col-sm-4"><!-- Button trigger modal add course -->
-                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#addRoom">
                                 Add classroom
                             </button>
                         </div>&nbsp
@@ -103,7 +103,7 @@
                                 <h2>Populated Timetable</h2>
                             </div>
                             <div class="bs-component table-responsive">
-                                <table class="table table-striped table-bordered">
+                                <table class="table table-striped" >
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -135,8 +135,8 @@
 
             </div>
 
-            <!-- Modal -->
-            <div class="modal" id="myModal">
+            <!-- Modal Add Course-->
+            <div class="modal" id="addCourse">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -144,7 +144,7 @@
                             <h4 class="modal-title">Add course</h4>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form class="form-horizontal" method="post" action="">
                                 <div class="form-group">
                                     <label for="" class="control-label">Course Title:</label>
                                     <input type="text" class="form-control" id="course-title" required>
@@ -175,13 +175,13 @@
                                 <div class="form-group form-inline">
                                     <h4>Time</h4>
                                     <h5>Start</h5><h5>End</h5>
-                                    <select name="dropdown" style="color: black">
+                                    <select name="startTime" class="form-control" id="startTime" >
                                         <option value="7" selected>7:00 am</option>
                                         <option value="9">9:00 am</option>
                                         <option value="11">11:00 am</option>
                                         <option value="13">1:00 pm</option>
                                     </select>
-                                    <select name="dropdown" style="color: black">
+                                    <select name="endTime" class="form-control" id="endTime">
                                         <option value="7" selected>7:00 am</option>
                                         <option value="9">9:00 am</option>
                                         <option value="11">11:00 am</option>
@@ -195,6 +195,58 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-success">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal add lecturer -->
+            <div class="modal" id="addLecturer">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Add Lecturer</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group form-inline">
+                                    <label for="inputEmail" class=" control-label">Full name</label>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" id="firstName" placeholder="First name">
+                                        <input type="text" class="form-control" id="middleName" placeholder="Middle name">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                                    <div class="col-lg-10">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Visiting lecturer
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textArea" class="col-lg-2 control-label">Course</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="inputCourse" placeholder="Course taking">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
