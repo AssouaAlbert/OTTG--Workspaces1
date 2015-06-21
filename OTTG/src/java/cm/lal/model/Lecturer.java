@@ -20,6 +20,9 @@ public class Lecturer {
     private Collection<Department> departmentCollection;
     private Collection<Lecture> lectureCollection;
 
+    public Lecturer() {
+    }
+
     public User getUser() {
         return user;
     }

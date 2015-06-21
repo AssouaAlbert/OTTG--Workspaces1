@@ -23,13 +23,9 @@
                     <div class="col-sm-12 col-md-10 col-md-offset-1">
 
                         <form >
-                            <div class="form-group input-group">
-                                <div class="form-group">
-
-                                    <h:commandButton class="btn btn-primary btn-block" type="edit" value="Create Timetable" action="index"></h:commandButton>
-                                    <h:commandButton class="btn btn-primary btn-block" type="edit" value="View Timetable" action="index"></h:commandButton>
-                                    <h:commandButton class="btn btn-primary btn-block" type="edit" value="Drop Timetable" action="index"></h:commandButton>
-                                </div>
+                            <a href="timetable.jsp" class="btn btn-primary">Create Timetable</a>
+                            <a href="timetable.jsp" class="btn btn-primary">Modify Student</a>
+                            </div>
                             </div>
                         </form>  
 
@@ -37,6 +33,6 @@
                 </div>    
             </div>
         </div>
-    </div>
-</body>
+        </div>
+    </body>
 </html>

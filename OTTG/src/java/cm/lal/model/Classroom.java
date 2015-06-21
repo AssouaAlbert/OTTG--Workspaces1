@@ -19,6 +19,9 @@ public class Classroom {
     private Integer capacity;
     private Collection<CourseTakesPlaceInClassroom> courseTakesPlaceInClassroomCollection;
 
+    public Classroom() {
+    }
+
     public String getIdclassroom() {
         return idclassroom;
     }

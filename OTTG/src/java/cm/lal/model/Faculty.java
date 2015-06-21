@@ -18,6 +18,9 @@ public class Faculty {
     private Dean dean;
     private Collection<Department> departmentCollection;
 
+    public Faculty() {
+    }
+
     public Integer getIdfaculty() {
         return idfaculty;
     }

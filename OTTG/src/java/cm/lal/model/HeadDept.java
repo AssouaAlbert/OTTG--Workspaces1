@@ -10,12 +10,15 @@ package cm.lal.model;
  *
  * @author user
  */
-public class HeadDept extends User {
+public class HeadDept {
     
     private int accesslevel;
     private Integer duration;
     private Department departmentDepartmentId;
     private User user;
+
+    public HeadDept() {
+    }
 
     public User getUser() {
         return user;

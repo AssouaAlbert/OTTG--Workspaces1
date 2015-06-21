@@ -21,6 +21,9 @@ public class Department {
     private HeadDept headDept;
     private Faculty facultyId;
 
+    public Department() {
+    }
+
     public Faculty getFacultyId() {
         return facultyId;
     }

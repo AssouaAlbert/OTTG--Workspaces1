@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cm.lal.model;
 
 import java.util.Collection;
@@ -14,17 +13,21 @@ import java.util.Date;
  * @author user
  */
 public class Lecture {
-    
+
     private int idlecture;
     private int timetableIdtimetable;
     private int lecturerUserIduser;
-    private String lectureDay;
-    private Date startTime;
-    private Date stopTime;
+    private int lectureDay;
+    private int startTime;
+    private int stopTime;
+
     private Collection<Student> studentCollection;
     private CourseTakesPlaceInClassroom courseTakesPlaceInClassroom;
     private Lecturer lecturer;
     private Timetable timetable;
+
+    public Lecture() {
+    }
 
     public int getIdlecture() {
         return idlecture;
@@ -50,28 +53,28 @@ public class Lecture {
         this.lecturerUserIduser = lecturerUserIduser;
     }
 
-    public String getLectureDay() {
-        return lectureDay;
-    }
-
-    public void setLectureDay(String lectureDay) {
-        this.lectureDay = lectureDay;
-    }
-
-    public Date getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
 
-    public Date getStopTime() {
+    public int getStopTime() {
         return stopTime;
     }
 
-    public void setStopTime(Date stopTime) {
+    public void setStopTime(int stopTime) {
         this.stopTime = stopTime;
+    }
+
+    public int getLectureDay() {
+        return lectureDay;
+    }
+
+    public void setLectureDay(int lectureDay) {
+        this.lectureDay = lectureDay;
     }
 
     public Collection<Student> getStudentCollection() {
@@ -108,7 +111,7 @@ public class Lecture {
 
     @Override
     public String toString() {
-        return "Lecture{" + "idlecture=" + idlecture + ", timetableIdtimetable=" + 
-                timetableIdtimetable + ", lecturerUserIduser=" + lecturerUserIduser + '}';
+        return "Lecture{" + "idlecture=" + idlecture + ", timetableIdtimetable="
+                + timetableIdtimetable + ", lecturerUserIduser=" + lecturerUserIduser + '}';
     }
 }

@@ -11,7 +11,11 @@ package cm.lal.model;
  * @author user
  */
 public class User {
+
+    public User() {
+    }
     
+
     private Integer iduser;
     private String firstname;
     private String middlename;

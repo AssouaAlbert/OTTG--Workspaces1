@@ -17,6 +17,9 @@ public class Dean {
     private Faculty facultyIdfaculty;
     private User user;
 
+    public Dean() {
+    }
+
     public User getUser() {
         return user;
     }

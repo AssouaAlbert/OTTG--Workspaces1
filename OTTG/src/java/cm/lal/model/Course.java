@@ -18,6 +18,9 @@ public class Course {
     private String courseName;
     private Collection<CourseTakesPlaceInClassroom> courseTakesPlaceInClassroomCollection;
 
+    public Course() {
+    }
+
     public String getCourseCode() {
         return courseCode;
     }
