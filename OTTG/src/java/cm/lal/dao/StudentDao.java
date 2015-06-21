@@ -11,7 +11,9 @@ import cm.lal.model.User;
 import cm.lal.util.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -114,20 +116,17 @@ public class StudentDao {
 //        return students;
 //    }
 
-    public User getUserById(int studentId) {
-        User student = new User();
-        String queryString = "select * from students where studentid=" + studentId;
+    public Student getStudentById(int studentId) {
+        Student student = new Student();
+        String queryString = "select * from student where user_userid=" + studentId;
         try {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(queryString);
             if (rs.next()) {
-                student.setIdstudent(rs.getInt("idstudent"));
-                student.setFirstname(rs.getString("firstname"));
-                student.setLastname(rs.getString("lastname"));
-                student.setMiddlename(rs.getString("middlename"));
-                student.setDateOfBirth(rs.getLong("date_of_birth"));
-                student.setPassword(rs.getString("password"));
-                student.setGender(rs.getString("gender"));
+                student.setAccesslevel(rs.getInt("accesslevel"));
+                student.setTypeGradUndergrad(rs.getString("type(grad underegrad)"));
+                //student.setu(rs.getString("lastname")); logic to set user
+                //student.setDepartmentDepartmentId(rs.getString("middlename")); logic to set department
             }
         } catch (SQLException e) {
             e.printStackTrace();

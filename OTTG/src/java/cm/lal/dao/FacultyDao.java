@@ -28,7 +28,7 @@ public class FacultyDao {
 
     public void addFaculty(Faculty faculty) throws SQLException {
         UserDao user = new UserDao();
-        user.addUser(faculty.getUser());
+        //user.addUser(faculty.getUser());
         PreparedStatement prep = conn.prepareStatement(
         "insert into faculty values (?,?,)");
         prep.setInt(1, faculty.getIdfaculty());

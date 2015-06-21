@@ -11,6 +11,7 @@ import cm.lal.model.User;
 import cm.lal.util.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -122,9 +123,9 @@ public class HeadDeptDao {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(queryString);
             if (rs.next()) {
-                headdept.setAccesslevel(rs.getInt("idheaddept"));
-                headdept.setPassword(rs.getString("password"));
-                headdept.setGender(rs.getString("gender"));
+                headdept.setAccesslevel(rs.getInt("accesslevel"));
+                headdept.setDuration(rs.getInt("duration"));
+                //headdept.setUser(rs.getString("gender"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
