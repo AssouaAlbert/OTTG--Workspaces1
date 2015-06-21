@@ -57,7 +57,7 @@
         <br><br><br>
 
         <div class="container">
-<<<<<<< Updated upstream
+            <<<<<<< Updated upstream
             <div class="row">
                 <div class=" card">
                     <div class="col-lg-12 col-md-12 col-sm-12" >
@@ -101,19 +101,19 @@
                     <div class="row">
                         <div class="col-lg-12" >
                             <div class="page-header">
-                                <h2>Populated Timetable</h2>
-=======
-            <div class="row" >
-                <div class="Absolute-Center is-Responsive  card ">
-                    <h1 style="color:white;">Administrator</h1>
-                    <div class="col-sm-12 col-md-10 col-md-offset-1">
-
-                        <form >
-                            <a href="timetable.jsp" class="btn btn-primary">Manage Timetable</a>
-                            <a href="student.jsp" class="btn btn-primary">Manage Student</a>
-                            <a href="timetable.jsp" class="btn btn-primary">Manage Lecturer</a>
-                            <a href="timetable.jsp" class="btn btn-primary">Manage Courses</a>
->>>>>>> Stashed changes
+                                <h2>General Timetable</h2>
+                                <!--                                =======
+                                                                <div class="row" >
+                                                                    <div class="Absolute-Center is-Responsive  card ">
+                                                                        <h1 style="color:white;">Administrator</h1>
+                                                                        <div class="col-sm-12 col-md-10 col-md-offset-1">
+                                
+                                                                            <form >
+                                                                                <a href="timetable.jsp" class="btn btn-primary">Manage Timetable</a>
+                                                                                <a href="student.jsp" class="btn btn-primary">Manage Student</a>
+                                                                                <a href="timetable.jsp" class="btn btn-primary">Manage Lecturer</a>
+                                                                                <a href="timetable.jsp" class="btn btn-primary">Manage Courses</a>
+                                                                                >>>>>>> Stashed changes-->
                             </div>
                             <div class="bs-component table-responsive">
                                 <table class="table table-striped table-bordered">
@@ -131,14 +131,29 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td >7am -9 am</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
+                                            <td >7am - 9am</td>
                                         </tr>
+                                        <tr>
+                                            <td >9am - 11am</td>
+                                        </tr>
+                                        <tr>
+                                            <td >11am - 1pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td >1pm - 3pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td >3pm - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td >5pm - 7pm</td>
+                                        </tr>
+<!--                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>-->
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -157,58 +172,62 @@
                             <h4 class="modal-title">Add course</h4>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form action="/OTTG/dashboardController" method="post">
                                 <div class="form-group">
                                     <label for="" class="control-label">Course Title:</label>
-                                    <input type="text" class="form-control" id="course-title" required>
+                                    <input type="text" iclass="form-control" id="course-title" name="course-title" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="control-label">Course Code</label>
-                                    <input type="text" class="form-control" id="course-code"  requiered>
+                                    <input type="text" class="form-control" id="course-code"  name="course-code"requiered>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="control-label">Classroom</label>
-                                    <input type="text" class="form-control" id="classroom"  requiered>
+                                    <input type="text" class="form-control" id="classroom" name="classroom" requiered>
                                 </div>
                                 <div class="form-group form-inline">
                                     <h5>Days</h5>
                                     <label for="" class="control-label">Mon</label>
-                                    <input type="checkbox" class="form-control" id="mon" >&nbsp
-                                    <label for="" class="control-label">Tuesday</label>
-                                    <input type="checkbox" class="form-control" id="tue" >&nbsp
-                                    <label for="" class="control-label">Wednesday</label>
-                                    <input type="checkbox" class="form-control" id="wed" >&nbsp
-                                    <label for="" class="control-label">Thursday</label>
-                                    <input type="checkbox" class="form-control" id="thu" >&nbsp
-                                    <label for="" class="control-label">Friday</label>
-                                    <input type="checkbox" class="form-control" id="fri" >&nbsp
-                                    <label for="" class="control-label">Saturday</label>
-                                    <input type="checkbox" class="form-control" id="sat" >&nbsp
+                                    <input type="checkbox" class="form-control" id="mon" name="day" >&nbsp
+                                    <label for="" class="control-label">Tue</label>
+                                    <input type="checkbox" class="form-control" id="tue" name="day">&nbsp
+                                    <label for="" class="control-label">Wed</label>
+                                    <input type="checkbox" class="form-control" id="wed" name="day">&nbsp
+                                    <label for="" class="control-label">Thu</label>
+                                    <input type="checkbox" class="form-control" id="thu" name="day">&nbsp
+                                    <label for="" class="control-label">Fri</label>
+                                    <input type="checkbox" class="form-control" id="fri" name="day">&nbsp
+                                    <label for="" class="control-label">Sat</label>
+                                    <input type="checkbox" class="form-control" id="sat" name="day">&nbsp
                                 </div>
                                 <div class="form-group form-inline">
                                     <h4>Time</h4>
-                                    <h5>Start</h5><h5>End</h5>
-                                    <select name="dropdown" style="color: black">
+                                    <h5>Start</h5>
+                                    <select name="start-time" style="color: black">
                                         <option value="7" selected>7:00 am</option>
                                         <option value="9">9:00 am</option>
                                         <option value="11">11:00 am</option>
                                         <option value="13">1:00 pm</option>
-                                    </select>
-                                    <select name="dropdown" style="color: black">
-                                        <option value="7" selected>7:00 am</option>
-                                        <option value="9">9:00 am</option>
+                                        <option value="15">3:00 pm</option>
+                                        <option value="17">5:00 pm</option>
+                                    </select><h5>End</h5>
+                                    <select name="stop-time" style="color: black">
+                                        <option value="9" selected>9:00 am</option>
                                         <option value="11">11:00 am</option>
                                         <option value="13">1:00 pm</option>
+                                        <option value="15">3:00 pm</option>
+                                        <option value="17">5:00 pm</option>
+                                        <option value="19">7:00 pm</option>
                                     </select>
-                                </div>
+                                </div >
+                                <button type="submit" class="btn btn-success">Save changes</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
+                                </div>
                             </form>
                         </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Save changes</button>
-                        </div>
                     </div>
                 </div>
             </div>

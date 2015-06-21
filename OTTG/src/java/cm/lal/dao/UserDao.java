@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,22 +29,20 @@ public class UserDao {
         conn = DbUtil.getConnection();
     }
 
-    public void addUser(User user) throws SQLException {
-        PreparedStatement prep = conn.prepareStatement(
-                "insert into user values (?,?,?,?,?,?,?)");
+    public void addUser(User user) {
+        try {
+            Statement stat = null;
+            String insertString = "insert into user(firstname,middlename,lastname,"
+                    + "date_of_birth,gender,password) values("
+                    + "'" + user.getFirstname() + "', '" + user.getMiddlename() + "', '" + user.getLastname()
+                    + "', " + user.getDateOfBirth() + ", '" + user.getGender()
+                    + "', '" + user.getPassword() + "')";
+            System.out.println(insertString);
+            stat = conn.createStatement();
+            stat.executeUpdate(insertString);
 
-        prep.setInt(1, user.getIduser());
-        prep.setString(2, user.getFirstname());
-        prep.setString(3, user.getMiddlename());
-        prep.setString(4, user.getLastname());
-        prep.setLong(5, user.getDateOfBirth()); // store dates as long
-        prep.setString(6, user.getGender());    // store gender as unit length string
-        prep.setString(7, user.getPassword());
-        int returnValue = prep.executeUpdate();
-        if (returnValue != 0) {
-            System.out.println("success with " + returnValue + " rows affected");
-        } else {
-            System.out.println("success with no return values from SQL");
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -80,20 +80,29 @@ public class UserDao {
 
     public boolean verifyIdentity(String uName, String password) throws SQLException {
         boolean value = false;
+        Statement stat = null;
+        String insString = "select * from user where"
+                + " firstname='" + uName + "' and password='" + password + "'";
 
-        String query = "select * from user where firstname=? and password=?";
-        PreparedStatement prep = conn.prepareStatement(query);
-        prep.setString(1, uName);
-        prep.setString(2, password);
-        ResultSet returnResultSet = prep.executeQuery();
+        System.out.println(insString);
+        stat = conn.createStatement();
+
+        ResultSet returnResultSet = stat.executeQuery(insString);
         int i = 0;
         while (returnResultSet.next()) {
             i++;
+            System.out.println("i has value "+i);
         }
         if (i == 1) {
             value = true;
         }
+        System.out.println("value is " + value);
         return value;
+
+//        String query = "select * from user where firstname=? and password=?";
+//        PreparedStatement prep = conn.prepareStatement(query);
+//        prep.setString(1, uName);
+//        prep.setString(2, password);
     }
 
     public List<User> getAllUsers() {

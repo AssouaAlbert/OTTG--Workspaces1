@@ -20,6 +20,9 @@ public class Student {
     private Department departmentDepartmentId;
     private User user;
 
+    public Student() {
+    }
+
     public int getAccesslevel() {
         return accesslevel;
     }

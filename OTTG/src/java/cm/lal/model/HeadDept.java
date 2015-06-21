@@ -17,6 +17,9 @@ public class HeadDept {
     private Department departmentDepartmentId;
     private User user;
 
+    public HeadDept() {
+    }
+
     public User getUser() {
         return user;
     }

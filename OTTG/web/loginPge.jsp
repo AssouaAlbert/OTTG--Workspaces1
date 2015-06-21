@@ -32,7 +32,7 @@
                     <h1 style="color:white;">Online Timetable Generator</h1>
                     <div class="col-sm-12 col-md-10 col-md-offset-1">
 
-                        <form action="verifyLogin.jsp" id="loginForm" method="post">
+                        <form action="/OTTG/LoginServlet" id="loginForm" method="post">
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input required="true" class="form-control" type="text" name='username' placeholder="username"/>          

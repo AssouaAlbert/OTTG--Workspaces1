@@ -20,6 +20,9 @@ public class CourseTakesPlaceInClassroom {
     private Classroom classroom;
     private Course course;
 
+    public CourseTakesPlaceInClassroom() {
+    }
+
     public String getCourseCourseCode() {
         return courseCourseCode;
     }

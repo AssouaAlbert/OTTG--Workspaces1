@@ -14,6 +14,9 @@ import java.util.Date;
  * @author user
  */
 public class Timetable {
+
+    public Timetable() {
+    }
     
     private Integer idtimetable;
     private Date validityStart;
