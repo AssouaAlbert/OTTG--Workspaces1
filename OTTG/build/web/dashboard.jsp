@@ -135,12 +135,7 @@
                                         <tr>
                                             <td >5pm - 7pm</td>
                                         </tr>
-                                        <!--                                    <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>-->
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
