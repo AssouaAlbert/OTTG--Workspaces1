@@ -6,6 +6,7 @@
 
 package cm.lal.dao;
 
+import cm.lal.model.Lecture;
 import cm.lal.model.Lecturer;
 import cm.lal.util.DbUtil;
 import java.sql.Connection;
@@ -90,17 +91,43 @@ public class LecturerDao {
         List<Lecturer> lecs = new ArrayList<>();
         try {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select * from classroom");
+            ResultSet rs = statement.executeQuery("select * from lecturer");
             while (rs.next()) {
-                Classroom classroom = new Classroom();
-                classroom.setIdclassroom(rs.getString("idclassroom"));
-                classroom.setRoomLocation(rs.getString("room_location"));
-                classroom.setCapacity(rs.getInt("capacity"));
-                classes.add(classroom);
+                Lecturer lec = new Lecturer();
+                lec.setUser_iduser(rs.getInt("idclassroom"));
+                lec.setDepartment_department_id(rs.getInt("department_department_id"));
+                lec.setTypePartOrFull(rs.getString("type(part or full)"));
+                lecs.add(lec);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return classes;
+        return lecs;
+    }
+    
+    public List<Lecture> getAllLecturesByLecturer (Lecturer lecturer) throws SQLException {
+        List<Lecture> lecs = new ArrayList<>();
+        com.mysql.jdbc.Statement stat = (com.mysql.jdbc.Statement) conn.createStatement();
+        String queryString ;
+        
+        queryString = "select * from lecture inner join lecturer on"
+                + " lecturer.user_iduser=lecture.lecturer_user_iduser"
+                + " where lecturer.user_iduser=" + lecturer.getUser_iduser();
+        
+        ResultSet rs = stat.executeQuery(queryString);
+        while (rs.next()) {
+            Lecture lecture = new Lecture();
+            lecture.setIdlecture(rs.getInt("idlecture"));
+            lecture.setLectureDay(rs.getInt("lecture_day"));
+            lecture.setStartTime(rs.getInt("start_time"));
+            lecture.setStopTime(rs.getInt("stop_time"));
+            lecture.setcTPLICcourseCode(rs.getString("course_takes_place_in_classroom_course_course_code"));
+            lecture.setcTPLICidClassroom(rs.getString("course_takes_place_in_classroom_classroom_idclassroom"));
+            lecture.setTimetableIdtimetable(rs.getInt("timetable_idtimetable"));
+            lecture.setLecturerUserIduser(rs.getInt("lecturer_user_iduser"));
+            lecs.add(lecture);
+            System.out.println(lecture.toString());
+        }
+        return lecs;
     }
 }

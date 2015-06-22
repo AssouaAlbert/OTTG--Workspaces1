@@ -4,7 +4,12 @@
     Author     : user
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="cm.lal.model.Lecture"%>
+<%@page import="cm.lal.model.Lecturer"%>
+<%@page import="cm.lal.dao.LecturerDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,6 +63,9 @@
                                 <li class="item"><a href="#">Settings</a></li>
                             </ul>
                         </div>
+                        <form class="form-horizontal" method="post" action="/OTTG/LecturerServlet" id="mipForm">
+                            <button type="submit" class="btn btn-success">Show individual List</button>
+                        </form>
                     </div>
                 </div>
 
@@ -66,6 +74,21 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Individual Timetable</h3>
                         </div>
+                        <%
+                            HttpSession sessi = request.getSession(false);
+                            // getting ServletContext values set at loginServlet
+                            ServletContext con = getServletContext();
+                            String username = (String) con.getAttribute("UserName");
+                            int userid = (Integer) con.getAttribute("UserID");
+                            // creating all objects necessary to get lectures offered by lecturer
+                            Lecturer testLecturer = new Lecturer();
+                            testLecturer.setUser_iduser(userid);
+                            LecturerDao lexeme = new LecturerDao();
+                            List<Lecture> lexlist = lexeme.getAllLecturesByLecturer(testLecturer);
+                            for (Lecture lex : lexlist) {
+                                out.print(lex.getcTPLICcourseCode() + " at " + lex.getcTPLICidClassroom());
+                            }
+                        %>
                         <div class="panel-body">
                             <div class="bs-component table-responsive">
                                 <table class="table table-striped" >
@@ -108,8 +131,8 @@
                     </div>
 
                 </div>
-                
-                
+
+
                 <script type="text/javascript" src="js/jquery.min.js"></script>
                 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 

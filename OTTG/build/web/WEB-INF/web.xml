@@ -8,6 +8,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>cm.lal.controllers.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>indexServlet</servlet-name>
+        <servlet-class>cm.lal.controllers.indexServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerServlet</servlet-name>
+        <servlet-class>cm.lal.controllers.LecturerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dashboardController</servlet-name>
         <url-pattern>/dashboardController</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>indexServlet</servlet-name>
+        <url-pattern>/indexServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerServlet</servlet-name>
+        <url-pattern>/LecturerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>10</session-timeout>

@@ -3,23 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cm.lal.dao;
 
 import cm.lal.model.Faculty;
+import cm.lal.model.Lecture;
 import cm.lal.model.User;
 import cm.lal.util.DbUtil;
+import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author faculty
  */
 public class FacultyDao {
-    
-    
+
     private Connection conn = null;
 
     public FacultyDao() {
@@ -30,7 +33,7 @@ public class FacultyDao {
         UserDao user = new UserDao();
         //user.addUser(faculty.getUser());
         PreparedStatement prep = conn.prepareStatement(
-        "insert into faculty values (?,?,)");
+                "insert into faculty values (?,?,)");
         prep.setInt(1, faculty.getIdfaculty());
         prep.setString(2, faculty.getFacultyname());
         int returnValue = prep.executeUpdate();
@@ -57,8 +60,8 @@ public class FacultyDao {
     public void updateFaculty(Faculty faculty) {
         try {
             PreparedStatement preparedStatement = conn
-                    .prepareStatement("update faculty set idfaculty=?, facultyname=?,"+
-                            "where idfaculty=?");
+                    .prepareStatement("update faculty set idfaculty=?, facultyname=?,"
+                            + "where idfaculty=?");
 // Parameters start with 1
             preparedStatement.setInt(1, faculty.getIdfaculty());
             preparedStatement.setString(2, faculty.getFacultyname());
@@ -68,7 +71,48 @@ public class FacultyDao {
         }
     }
 
+    public List<Lecture> getAllLecturesInFac(Faculty fac) throws SQLException {
+        List<Lecture> lecs = new ArrayList<>();
+        Statement stat = (Statement) conn.createStatement();
+        String queryString ;
+        if (fac.getIdfaculty() == null) {
 
+            queryString = "select * from lecture     inner join lecturer on"
+                    + " lecturer.user_iduser=lecture.lecturer_user_iduser inner join"
+                    + " lecturer_belongs_to_department on lecturer.user_iduser="
+                    + "lecturer_belongs_to_department.lecturer_user_iduser inner join"
+                    + " department on department.department_id="
+                    + "lecturer.user_iduser inner join faculty on faculty.idfaculty="
+                    + "department.faculty_idfaculty"
+                    + " where faculty.facultyname=" + fac.getFacultyname();
+        } else {
+
+            queryString = "select * from lecture     inner join lecturer on"
+                    + " lecturer.user_iduser=lecture.lecturer_user_iduser inner join"
+                    + " lecturer_belongs_to_department on lecturer.user_iduser="
+                    + "lecturer_belongs_to_department.lecturer_user_iduser inner join"
+                    + " department on department.department_id="
+                    + "lecturer.user_iduser inner join faculty on faculty.idfaculty="
+                    + "department.faculty_idfaculty"
+                    + " where faculty.idfaculty=" + fac.getIdfaculty();
+        }
+
+        ResultSet rs = stat.executeQuery(queryString);
+        while (rs.next()) {
+            Lecture lec = new Lecture();
+            lec.setIdlecture(rs.getInt("idlecture"));
+            lec.setLectureDay(rs.getInt("lecture_day"));
+            lec.setStartTime(rs.getInt("start_time"));
+            lec.setStopTime(rs.getInt("stop_time"));
+            lec.setcTPLICcourseCode("course_takes_place_in_classroom_course_course_code");
+            lec.setcTPLICidClassroom("course_takes_place_in_classroom_classroom_idclassroom");
+            lec.setTimetableIdtimetable(rs.getInt("timetable_idtimetable"));
+            lec.setLecturerUserIduser(rs.getInt("lecturer_user_iduser"));
+            lecs.add(lec);
+            System.out.println(lec.toString());
+        }
+        return lecs;
+    }
 
 //    public List<User> getAllUsers() {
 //        List<User> facultys = new ArrayList();
@@ -91,6 +135,4 @@ public class FacultyDao {
 //        }
 //        return facultys;
 //    }
-
-
 }

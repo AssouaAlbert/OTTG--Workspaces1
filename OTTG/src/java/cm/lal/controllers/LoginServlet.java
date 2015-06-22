@@ -6,16 +6,22 @@
 package cm.lal.controllers;
 
 import cm.lal.dao.UserDao;
+import cm.lal.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -80,23 +86,56 @@ public class LoginServlet extends HttpServlet {
         String passWord = request.getParameter("password");
         UserDao userDao = new UserDao();
 
+        String userSession = ""; // attribute for getting user session in next few JSP pages: NB --potential security loophole
         if (userName == null || passWord == null) {
             out.print("Invalid Credentials. Try Again!!!\n");
         } else {
+            User userClass = new User();
             out.print("\n Please be patient " + userName + "\n");
             boolean value = false;
+            int accesslevel = 3;
+// minimize the number of variables used because of space and memory considerations
             try {
-                value = userDao.verifyIdentity(userName, passWord);
-                System.out.println("user= "+userName+"pass="+passWord);
+                HashMap<User, Boolean> hash = userDao.verifyIdentity(userName, passWord);
+                for (Map.Entry<User, Boolean> entry : hash.entrySet()) {
+                    userClass = entry.getKey();
+                    accesslevel = userClass.getAccesslevel();
+                    value = entry.getValue();
+                }
+                System.out.println("user= " + userName + "pass=" + passWord);
             } catch (SQLException ex) {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (value == true) {
-                
-                response.sendRedirect("dashboard.jsp");
+                        HttpSession session = request.getSession(true);
+                        session.setAttribute(userSession, userClass);
+                        ServletContext svContext = getServletContext();
+                        svContext.setAttribute("UserName", userClass.getFirstname());
+                        svContext.setAttribute("UserID", userClass.getIduser());
+                switch (accesslevel) {
+                    // core business logic and 
+                    case 0:
+                        RequestDispatcher rd = request.getRequestDispatcher("deanView.jsp");
+                        rd.forward(request, response);
+                        response.sendRedirect("deanView.jsp");
+                        break;
+                    case 1:
+                        RequestDispatcher rd1 = request.getRequestDispatcher("dashboard.jsp");
+                        rd1.forward(request, response);
+                        response.sendRedirect("dashboard.jsp");
+                        break;
+                    case 2:
+                        RequestDispatcher rd2 = request.getRequestDispatcher("hodView.jsp");
+                        rd2.forward(request, response);
+                        response.sendRedirect("hodView.jsp");
+                        break;
+                    default:
+                        RequestDispatcher rd3 = request.getRequestDispatcher("lecturerView.jsp");
+                        rd3.forward(request, response);
+                        response.sendRedirect("lecturerView.jsp");
+                }
             } else {
-                
-                response.sendRedirect("loginPge.jsp"); 
+                response.sendRedirect("loginPge.jsp");
             }
         }
     }

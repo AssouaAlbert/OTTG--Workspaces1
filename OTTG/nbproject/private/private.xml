@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/B00KS/Level%20500/CEF502%20JEE/Timetable%20Project/ALA/OTTG--Workspaces1/OTTG/web/dashboard.jsp</file>
-            <file>file:/E:/B00KS/Level%20500/CEF502%20JEE/Timetable%20Project/ALA/OTTG--Workspaces1/OTTG/web/verifyLogin.jsp</file>
-            <file>file:/E:/B00KS/Level%20500/CEF502%20JEE/Timetable%20Project/ALA/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/UserDao.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/FacultyDao.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/web/index.jsp</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/StudentDao.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/util/DbUtil.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/LecturerDao.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/controllers/indexServlet.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/controllers/dashboardController.java</file>
         </group>
     </open-files>
 </project-private>

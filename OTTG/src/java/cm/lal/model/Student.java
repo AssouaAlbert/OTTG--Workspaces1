@@ -15,6 +15,8 @@ import java.util.Collection;
 public class Student {
     
     private String typeGradUndergrad;
+    private int user_id_iduser;
+    private int department_department_id;
     private Collection<Lecture> lectureCollection;
     private Department departmentDepartmentId;
     private User user;
@@ -28,6 +30,22 @@ public class Student {
 
     public void setTypeGradUndergrad(String typeGradUndergrad) {
         this.typeGradUndergrad = typeGradUndergrad;
+    }
+
+    public int getUser_id_iduser() {
+        return user_id_iduser;
+    }
+
+    public void setUser_id_iduser(int user_id_iduser) {
+        this.user_id_iduser = user_id_iduser;
+    }
+
+    public int getDepartment_department_id() {
+        return department_department_id;
+    }
+
+    public void setDepartment_department_id(int department_department_id) {
+        this.department_department_id = department_department_id;
     }
     
     public Collection<Lecture> getLectureCollection() {

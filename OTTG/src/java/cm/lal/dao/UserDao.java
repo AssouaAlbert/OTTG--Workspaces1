@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,26 +79,33 @@ public class UserDao {
         }
     }
 
-    public boolean verifyIdentity(String uName, String password) throws SQLException {
-        boolean value = false;
+    public HashMap<User, Boolean> verifyIdentity(String uName, String password) throws SQLException {
         Statement stat = null;
         String insString = "select * from user where"
                 + " firstname='" + uName + "' and password='" + password + "'";
 
-        System.out.println(insString);
         stat = conn.createStatement();
-
         ResultSet returnResultSet = stat.executeQuery(insString);
-        int i = 0;
+        HashMap<User, Boolean> hashMap = new HashMap();
+        User us = new User();
+        boolean value = false;
+        int i = 0; // to check if the query succeeds for a uniique value
         while (returnResultSet.next()) {
             i++;
-            System.out.println("i has value "+i);
+            us.setIduser(returnResultSet.getInt("iduser"));
+            us.setFirstname(returnResultSet.getString("firstname"));
+            us.setMiddlename(returnResultSet.getString("middlename"));
+            us.setLastname(returnResultSet.getString("lastname"));
+            us.setDateOfBirth(returnResultSet.getLong("date_of_birth"));
+            us.setGender(returnResultSet.getString("gender"));
+            us.setPassword(returnResultSet.getString("password"));
+            us.setAccesslevel(returnResultSet.getInt("accesslevel"));
         }
         if (i == 1) {
             value = true;
         }
-        System.out.println("value is " + value);
-        return value;
+        hashMap.put(us, value);
+        return hashMap;
 
 //        String query = "select * from user where firstname=? and password=?";
 //        PreparedStatement prep = conn.prepareStatement(query);

@@ -15,7 +15,7 @@ public class User {
     public User() {
     }
     
-
+    private Integer accesslevel;
     private Integer iduser;
     private String firstname;
     private String middlename;
@@ -23,6 +23,14 @@ public class User {
     private long dateOfBirth;
     private String gender; // essentially a String of unit length
     private String password;
+
+    public Integer getAccesslevel() {
+        return accesslevel;
+    }
+
+    public void setAccesslevel(Integer accesslevel) {
+        this.accesslevel = accesslevel;
+    }
 
     public long getDateOfBirth() {
         return dateOfBirth;

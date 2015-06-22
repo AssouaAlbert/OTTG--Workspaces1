@@ -8,6 +8,7 @@ package cm.lal.test;
 
 import cm.lal.dao.UserDao;
 import cm.lal.model.User;
+import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -23,19 +24,18 @@ public class TestClass {
     }
 
     public static void main(String[] args) {
-        
-        try {
-            user = new User();
-            user.setDateOfBirth(new Date().getTime());
-            user.setFirstname("na milk");
-            user.setLastname("limpopo");
-            user.setPassword("alloa");
-            user.setGender("F");
-            dao = new UserDao();
-            System.out.println("success");
-            dao.addUser(user);
-            dao.deleteUser(1);
-        } catch (Exception e) {
-        }
+//        try {
+//            user = new User();
+//            user.setDateOfBirth(new Date().getTime());
+//            user.setFirstname("na milk");
+//            user.setLastname("limpopo");
+//            user.setPassword("alloa");
+//            user.setGender("F");
+//            dao = new UserDao();
+//            System.out.println("success");
+//            dao.addUser(user);
+//            dao.deleteUser(1);
+//        } catch (Exception e) {
+//        }
     }
 }

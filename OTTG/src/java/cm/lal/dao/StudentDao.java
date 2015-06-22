@@ -32,11 +32,10 @@ public class StudentDao {
         UserDao user = new UserDao();
         user.addUser(student.getUser());
         PreparedStatement prep = conn.prepareStatement(
-        "insert into student values (?,?,?,?)");
-        prep.setInt(1, student.getAccesslevel());
-        prep.setString(2, student.getTypeGradUndergrad());
-        prep.setInt(3, student.getUser().getIduser());
-        prep.setInt(4,student.getDepartmentDepartmentId().getDepartmentId());
+        "insert into student values (?,?,?)");
+        prep.setString(1, student.getTypeGradUndergrad());
+        prep.setInt(2, student.getUser().getIduser());
+        prep.setInt(3,student.getDepartmentDepartmentId().getDepartmentId());
         int returnValue = prep.executeUpdate();
         if (returnValue != 0) {
             System.out.println("success with " + returnValue + " rows affected");
@@ -61,14 +60,13 @@ public class StudentDao {
     public void updateStudent(Student student) {
         try {
             PreparedStatement preparedStatement = conn
-                    .prepareStatement("update student set accesslevel=?, type(grad undergrad)=?,"+
+                    .prepareStatement("update student set type(grad undergrad)=?,"+
                             " department_department_id=? where studentid=?");
 // Parameters start with 1
             UserDao user = new UserDao();
-            preparedStatement.setInt(1, student.getAccesslevel());
-            preparedStatement.setString(2, student.getTypeGradUndergrad());
-            preparedStatement.setInt(3, student.getDepartmentDepartmentId().getDepartmentId());
-            preparedStatement.setInt(4, student.getUser().getIduser());
+            preparedStatement.setString(1, student.getTypeGradUndergrad());
+            preparedStatement.setInt(2, student.getDepartmentDepartmentId().getDepartmentId());
+            preparedStatement.setInt(3, student.getUser().getIduser());
             preparedStatement.executeUpdate();
             user.updateUser(student.getUser());
         } catch (SQLException e) {
@@ -123,8 +121,9 @@ public class StudentDao {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(queryString);
             if (rs.next()) {
-                student.setAccesslevel(rs.getInt("accesslevel"));
                 student.setTypeGradUndergrad(rs.getString("type(grad underegrad)"));
+                student.setUser_id_iduser(rs.getInt("user_iduser"));
+                student.setDepartment_department_id(rs.getInt("department_department_id"));
                 //student.setu(rs.getString("lastname")); logic to set user
                 //student.setDepartmentDepartmentId(rs.getString("middlename")); logic to set department
             }

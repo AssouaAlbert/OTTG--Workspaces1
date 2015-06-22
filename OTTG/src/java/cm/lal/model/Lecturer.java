@@ -17,6 +17,7 @@ public class Lecturer {
     private User user;
     private String typePartOrFull;
     private int user_iduser;
+    private int department_department_id;
     private Collection<Department> departmentCollection;
     private Collection<Lecture> lectureCollection;
 
@@ -45,6 +46,14 @@ public class Lecturer {
 
     public void setUser_iduser(int user_iduser) {
         this.user_iduser = user_iduser;
+    }
+
+    public int getDepartment_department_id() {
+        return department_department_id;
+    }
+
+    public void setDepartment_department_id(int department_department_id) {
+        this.department_department_id = department_department_id;
     }
 
     public Collection<Department> getDepartmentCollection() {
