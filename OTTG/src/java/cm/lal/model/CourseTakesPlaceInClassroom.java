@@ -23,6 +23,14 @@ public class CourseTakesPlaceInClassroom {
     public CourseTakesPlaceInClassroom() {
     }
 
+    public CourseTakesPlaceInClassroom(String courseCourseCode, String classroomIdclassroom, Collection<Lecture> lectureCollection, Classroom classroom, Course course) {
+        this.courseCourseCode = courseCourseCode;
+        this.classroomIdclassroom = classroomIdclassroom;
+        this.lectureCollection = lectureCollection;
+        this.classroom = classroom;
+        this.course = course;
+    }
+
     public String getCourseCourseCode() {
         return courseCourseCode;
     }

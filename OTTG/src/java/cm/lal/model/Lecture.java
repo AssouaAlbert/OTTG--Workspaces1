@@ -20,7 +20,8 @@ public class Lecture {
     private int lectureDay;
     private int startTime;
     private int stopTime;
-
+    private String cTPLICcourseCode;
+    private String cTPLICidClassroom;
     private Collection<Student> studentCollection;
     private CourseTakesPlaceInClassroom courseTakesPlaceInClassroom;
     private Lecturer lecturer;
@@ -67,6 +68,22 @@ public class Lecture {
 
     public void setStopTime(int stopTime) {
         this.stopTime = stopTime;
+    }
+
+    public String getcTPLICcourseCode() {
+        return cTPLICcourseCode;
+    }
+
+    public void setcTPLICcourseCode(String cTPLICcourseCode) {
+        this.cTPLICcourseCode = cTPLICcourseCode;
+    }
+
+    public String getcTPLICidClassroom() {
+        return cTPLICidClassroom;
+    }
+
+    public void setcTPLICidClassroom(String cTPLICidClassroom) {
+        this.cTPLICidClassroom = cTPLICidClassroom;
     }
 
     public int getLectureDay() {
