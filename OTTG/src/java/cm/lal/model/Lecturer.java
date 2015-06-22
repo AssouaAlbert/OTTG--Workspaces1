@@ -15,8 +15,8 @@ import java.util.Collection;
 public class Lecturer {
     
     private User user;
-    private int accesslevel;
     private String typePartOrFull;
+    private int user_iduser;
     private Collection<Department> departmentCollection;
     private Collection<Lecture> lectureCollection;
 
@@ -31,20 +31,20 @@ public class Lecturer {
         this.user = user;
     }
 
-    public int getAccesslevel() {
-        return accesslevel;
-    }
-
-    public void setAccesslevel(int accesslevel) {
-        this.accesslevel = accesslevel;
-    }
-
     public String getTypePartOrFull() {
         return typePartOrFull;
     }
 
     public void setTypePartOrFull(String typePartOrFull) {
         this.typePartOrFull = typePartOrFull;
+    }
+
+    public int getUser_iduser() {
+        return user_iduser;
+    }
+
+    public void setUser_iduser(int user_iduser) {
+        this.user_iduser = user_iduser;
     }
 
     public Collection<Department> getDepartmentCollection() {

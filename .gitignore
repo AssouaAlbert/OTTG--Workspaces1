@@ -49,4 +49,13 @@ OTTG/nbproject/project.properties
 OTTG/nbproject/project.xml
 OTTG/nbproject/project.properties
 OTTG/nbproject/private/private.properties
+<<<<<<< Updated upstream
 /OTTG/
+=======
+OTTG/nbproject/private/private.properties
+OTTG/nbproject/private/private.properties
+OTTG/nbproject/project.properties
+*.properties
+>>>>>>> Stashed changes
+OTTG/nbproject/private/private.properties
+*.properties

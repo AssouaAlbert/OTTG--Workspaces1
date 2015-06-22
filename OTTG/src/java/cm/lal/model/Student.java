@@ -14,21 +14,12 @@ import java.util.Collection;
  */
 public class Student {
     
-    private int accesslevel;
     private String typeGradUndergrad;
     private Collection<Lecture> lectureCollection;
     private Department departmentDepartmentId;
     private User user;
 
     public Student() {
-    }
-
-    public int getAccesslevel() {
-        return accesslevel;
-    }
-
-    public void setAccesslevel(int accesslevel) {
-        this.accesslevel = accesslevel;
     }
 
     public String getTypeGradUndergrad() {

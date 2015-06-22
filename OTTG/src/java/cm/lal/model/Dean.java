@@ -12,7 +12,6 @@ package cm.lal.model;
 public class Dean {
 
     private String formerPosition;
-    private int accesslevel;
     private Integer duration;
     private Faculty facultyIdfaculty;
     private User user;
@@ -34,14 +33,6 @@ public class Dean {
 
     public void setFormerPosition(String formerPosition) {
         this.formerPosition = formerPosition;
-    }
-
-    public int getAccesslevel() {
-        return accesslevel;
-    }
-
-    public void setAccesslevel(int accesslevel) {
-        this.accesslevel = accesslevel;
     }
 
     public Integer getDuration() {

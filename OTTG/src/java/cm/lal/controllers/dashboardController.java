@@ -137,8 +137,7 @@ public class dashboardController extends HttpServlet {
                     Logger.getLogger(dashboardController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
-        
+        } 
     }
 
     /**

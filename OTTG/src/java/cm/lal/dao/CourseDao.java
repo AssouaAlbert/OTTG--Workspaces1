@@ -87,7 +87,7 @@ public class CourseDao {
         return course;
     }
     
-    public List<Course> getAllClassrooms() {
+    public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList();
         try {
             Statement statement = conn.createStatement();

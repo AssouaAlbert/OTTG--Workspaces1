@@ -12,8 +12,9 @@ package cm.lal.model;
  */
 public class HeadDept {
     
-    private int accesslevel;
     private Integer duration;
+    private int user_iduser;
+    private int department_department_id;
     private Department departmentDepartmentId;
     private User user;
 
@@ -28,20 +29,28 @@ public class HeadDept {
         this.user = user;
     }
 
-    public int getAccesslevel() {
-        return accesslevel;
-    }
-
-    public void setAccesslevel(int accesslevel) {
-        this.accesslevel = accesslevel;
-    }
-
     public Integer getDuration() {
         return duration;
     }
 
     public void setDuration(Integer duration) {
         this.duration = duration;
+    }
+
+    public int getUser_iduser() {
+        return user_iduser;
+    }
+
+    public void setUser_iduser(int user_iduser) {
+        this.user_iduser = user_iduser;
+    }
+
+    public int getDepartment_department_id() {
+        return department_department_id;
+    }
+
+    public void setDepartment_department_id(int department_department_id) {
+        this.department_department_id = department_department_id;
     }
 
     public Department getDepartmentDepartmentId() {

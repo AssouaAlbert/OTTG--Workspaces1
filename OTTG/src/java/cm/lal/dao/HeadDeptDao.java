@@ -32,11 +32,10 @@ public class HeadDeptDao {
         UserDao user = new UserDao();
         user.addUser(headdept.getUser());
         PreparedStatement prep = conn.prepareStatement(
-        "insert into head_dept values (?,?,?,?)");
-        prep.setInt(1, headdept.getAccesslevel());
-        prep.setInt(2, headdept.getDuration());
-        prep.setInt(3, headdept.getUser().getIduser());
-        prep.setInt(4,headdept.getDepartmentDepartmentId().getDepartmentId());
+        "insert into head_dept values (?,?,?)");
+        prep.setInt(1, headdept.getDuration());
+        prep.setInt(2, headdept.getUser().getIduser());
+        prep.setInt(3,headdept.getDepartmentDepartmentId().getDepartmentId());
         int returnValue = prep.executeUpdate();
         if (returnValue != 0) {
             System.out.println("success with " + returnValue + " rows affected");
@@ -61,14 +60,13 @@ public class HeadDeptDao {
     public void updateHeadDept(HeadDept headdept) {
         try {
             PreparedStatement preparedStatement = conn
-                    .prepareStatement("update head_dept set accesslevel=?, duration=?,"+
-                            " user_iduser=? ,department_department_id=?  where headdeptid=?");
+                    .prepareStatement("update head_dept duration=?, user_iduser=?, "
+                            + "department_department_id=?  where headdeptid=?");
 // Parameters start with 1
             UserDao user = new UserDao();
-            preparedStatement.setInt(1, headdept.getAccesslevel());
-            preparedStatement.setInt(2, headdept.getDuration());
-            preparedStatement.setInt(3, headdept.getUser().getIduser());
-            preparedStatement.setInt(4, headdept.getDepartmentDepartmentId().getDepartmentId());
+            preparedStatement.setInt(1, headdept.getDuration());
+            preparedStatement.setInt(2, headdept.getUser().getIduser());
+            preparedStatement.setInt(3, headdept.getDepartmentDepartmentId().getDepartmentId());
             preparedStatement.executeUpdate();
             user.updateUser(headdept.getUser());
         } catch (SQLException e) {
@@ -123,8 +121,9 @@ public class HeadDeptDao {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(queryString);
             if (rs.next()) {
-                headdept.setAccesslevel(rs.getInt("accesslevel"));
+                headdept.setUser_iduser(rs.getInt("user_iduser"));
                 headdept.setDuration(rs.getInt("duration"));
+                headdept.setDepartment_department_id(rs.getInt("department_department_id"));
                 //headdept.setUser(rs.getString("gender"));
             }
         } catch (SQLException e) {
@@ -132,4 +131,5 @@ public class HeadDeptDao {
         }
         return headdept;
     }
+    
 }
