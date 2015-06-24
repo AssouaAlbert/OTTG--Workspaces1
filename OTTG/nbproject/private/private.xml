@@ -5,11 +5,9 @@
         <group>
             <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/FacultyDao.java</file>
             <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/web/index.jsp</file>
-            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/StudentDao.java</file>
-            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/util/DbUtil.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/model/Lecture.java</file>
             <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/dao/LecturerDao.java</file>
-            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/controllers/indexServlet.java</file>
-            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/src/java/cm/lal/controllers/dashboardController.java</file>
+            <file>file:/C:/Users/user/Documents/GitHub/OTTG--Workspaces1/OTTG/web/lecturerView.jsp</file>
         </group>
     </open-files>
 </project-private>

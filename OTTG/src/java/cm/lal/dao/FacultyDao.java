@@ -7,7 +7,6 @@ package cm.lal.dao;
 
 import cm.lal.model.Faculty;
 import cm.lal.model.Lecture;
-import cm.lal.model.User;
 import cm.lal.util.DbUtil;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;

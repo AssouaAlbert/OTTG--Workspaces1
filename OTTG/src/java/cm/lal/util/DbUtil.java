@@ -24,19 +24,20 @@ public class DbUtil {
             return connection;
         } else {
             try {
-//                Properties prop = new Properties();
-//                InputStream inputStream
-//                        = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
+                Properties prop = new Properties();
+                InputStream inputStream
+                        = DbUtil.class.getClassLoader().getResourceAsStream("\\db.properties");
 
-//                prop.load(inputStream);
-//                String driver = prop.getProperty("driver");
-//                String url = prop.getProperty("url");
-//                String user = prop.getProperty("user");
-//                String password = prop.getProperty("password");
-                String driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://localhost/mydb";
-                String user = "root";
-                String password = "blackSKIN47>>heAD";
+                prop.load(inputStream);
+                String driver = prop.getProperty("driver");
+                String url = prop.getProperty("url");
+                String user = prop.getProperty("user");
+                String password = prop.getProperty("password");
+                
+//                String driver = "com.mysql.jdbc.Driver";
+//                String url = "jdbc:mysql://localhost/mydb";
+//                String user = "root";
+//                String password = "blackSKIN47>>heAD";
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
             } catch (Exception e) {

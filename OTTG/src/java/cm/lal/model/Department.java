@@ -75,6 +75,7 @@ public class Department {
     @Override
     public String toString() {
         // ", departmntName=" + departmntName + ", headDept=" + headDept + 
-        return "Department{" + "departmentId=" + departmentId + '}';
+        return "Department{" + "departmentId=" + departmentId + " departmentName="
+               + departmntName + "}";
     }
 }
