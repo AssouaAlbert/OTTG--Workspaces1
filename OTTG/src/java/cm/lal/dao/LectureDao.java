@@ -117,8 +117,8 @@ public class LectureDao {
             lec.setLectureDay(res.getInt("lecture_day"));
             lec.setStartTime(res.getInt("start_time"));
             lec.setStopTime(res.getInt("stop_time"));
-            lec.setcTPLICcourseCode("course_takes_place_in_classroom_course_code");
-            lec.setcTPLICidClassroom("course_takes_place_in_classroom_classroom_idclassroom");
+            lec.setcTPLICcourseCode(res.getString("course_takes_place_in_classroom_course_code"));
+            lec.setcTPLICidClassroom(res.getString("course_takes_place_in_classroom_classroom_idclassroom"));
             lec.setTimetableIdtimetable(res.getInt("timetable_idtimetable"));
             lec.setLecturerUserIduser(res.getInt("lecturer_user_iduser"));
             lecs.add(lec);

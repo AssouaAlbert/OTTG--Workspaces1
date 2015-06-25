@@ -32,7 +32,7 @@ public class DepartmentDao {
         List<Lecture> lecs = new ArrayList<>();
         Statement stat = (Statement) conn.createStatement();
         String queryString ;
-        System.out.println("\n" + depp.toString());
+        //System.out.println("\n" + depp.toString());
         if (depp.getDepartmentId() == null) {
 
             queryString = "select * from lecture     inner join lecturer on"
@@ -42,7 +42,7 @@ public class DepartmentDao {
                     + " department on department.department_id=lecturer_belongs_to_department"
                     + ".department_department_id where department.department_name="
                     + "'" + depp.getDepartmntName() + "'";
-            System.out.println(queryString);
+            //System.out.println(queryString);
         } else {
 
             queryString = "select * from lecture     inner join lecturer on"
@@ -52,7 +52,7 @@ public class DepartmentDao {
                     + " department on department.department_id=lecturer_belongs_to_department"
                     + ".department_department_id where department.department_id="
                     + "'" + depp.getDepartmentId()+ "'";
-            System.out.println(queryString);
+            //System.out.println(queryString);
         }
 
         ResultSet rs = stat.executeQuery(queryString);
@@ -62,8 +62,8 @@ public class DepartmentDao {
             lec.setLectureDay(rs.getInt("lecture_day"));
             lec.setStartTime(rs.getInt("start_time"));
             lec.setStopTime(rs.getInt("stop_time"));
-            lec.setcTPLICcourseCode("course_takes_place_in_classroom_course_course_code");
-            lec.setcTPLICidClassroom("course_takes_place_in_classroom_classroom_idclassroom");
+            lec.setcTPLICcourseCode(rs.getString("course_takes_place_in_classroom_course_course_code"));
+            lec.setcTPLICidClassroom(rs.getString("course_takes_place_in_classroom_classroom_idclassroom"));
             lec.setTimetableIdtimetable(rs.getInt("timetable_idtimetable"));
             lec.setLecturerUserIduser(rs.getInt("lecturer_user_iduser"));
             lecs.add(lec);

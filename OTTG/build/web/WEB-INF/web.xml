@@ -27,6 +27,10 @@
         <servlet-name>FirstPge</servlet-name>
         <servlet-class>cm.lal.controllers.FirstPge</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MoveToServlet</servlet-name>
+        <servlet-class>cm.lal.controllers.MoveToServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dashboardController</servlet-name>
         <url-pattern>/dashboardController</url-pattern>
@@ -50,6 +54,10 @@
     <servlet-mapping>
         <servlet-name>FirstPge</servlet-name>
         <url-pattern>/FirstPge</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MoveToServlet</servlet-name>
+        <url-pattern>/MoveToServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>10</session-timeout>
